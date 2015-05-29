@@ -1,0 +1,13 @@
+# Site settings
+title: ClaytonFerris.com
+email: clay@claytonferris.com
+description: > # this means to ignore newlines until "baseurl:"
+  The Website of Clayton Ferris. A software engineer currently based in
+  Tucson, Arizona.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://claytonferris.com" # the base hostname & protocol for your site
+twitter_username: clayferris
+github_username:  theshortcut
+
+# Build settings
+markdown: kramdown
