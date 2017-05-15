@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/clayferris
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://claytonferris.com
+  * I am clayferris (https://keybase.io/clayferris) on keybase.
+  * I have a public key ASB5-xE8gRy20pKGk9sDlnenHiiWjcJOvaIAhXGyg7UqBQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "012052d166870923d3a95c36b06b67ffe70474c8a6d664132ccc97ed4003f0e82b620a",
+            "host": "keybase.io",
+            "kid": "012079fb113c811cb6d2928693db039677a71e28968dc24ebda2008571b283b52a050a",
+            "uid": "ffd3797cba2b1ec14689296c1f8efd19",
+            "username": "clayferris"
+        },
+        "service": {
+            "hostname": "claytonferris.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.22"
+    },
+    "ctime": 1494818569,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1494818535,
+        "hash": "edfea53860ee7d537d75ea119fe9b4ae5cd5cc5ea224ba5ebc2a57682e19c827185f028a3a8f593a22ff57591d3b73d5b5b045110dd9be4ce021405a0423fe29",
+        "seqno": 1083102
+    },
+    "prev": "6fcb01fb11cc9989aed64053507ac2227f7a8fd851cfe4ab5d9476a605441d60",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgefsRPIEcttKShpPbA5Z3px4olo3CTr2iAIVxsoO1KgUKp3BheWxvYWTFAvt7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNTJkMTY2ODcwOTIzZDNhOTVjMzZiMDZiNjdmZmU3MDQ3NGM4YTZkNjY0MTMyY2NjOTdlZDQwMDNmMGU4MmI2MjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNzlmYjExM2M4MTFjYjZkMjkyODY5M2RiMDM5Njc3YTcxZTI4OTY4ZGMyNGViZGEyMDA4NTcxYjI4M2I1MmEwNTBhIiwidWlkIjoiZmZkMzc5N2NiYTJiMWVjMTQ2ODkyOTZjMWY4ZWZkMTkiLCJ1c2VybmFtZSI6ImNsYXlmZXJyaXMifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImNsYXl0b25mZXJyaXMuY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4yMiJ9LCJjdGltZSI6MTQ5NDgxODU2OSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDk0ODE4NTM1LCJoYXNoIjoiZWRmZWE1Mzg2MGVlN2Q1MzdkNzVlYTExOWZlOWI0YWU1Y2Q1Y2M1ZWEyMjRiYTVlYmMyYTU3NjgyZTE5YzgyNzE4NWYwMjhhM2E4ZjU5M2EyMmZmNTc1OTFkM2I3M2Q1YjViMDQ1MTEwZGQ5YmU0Y2UwMjE0MDVhMDQyM2ZlMjkiLCJzZXFubyI6MTA4MzEwMn0sInByZXYiOiI2ZmNiMDFmYjExY2M5OTg5YWVkNjQwNTM1MDdhYzIyMjdmN2E4ZmQ4NTFjZmU0YWI1ZDk0NzZhNjA1NDQxZDYwIiwic2Vxbm8iOjksInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RA8bCDyBZ15KG+exQ/RRywk/mWpQPua27IAF8syz4HqNNVZ/ZTLj6/HBO1rWiYLyn+MS1GrfV0J8JJrjTVwe7fAahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIA1vCFyl03pCuIvguD5c2VLezgjJsQMrq04HsJufiOQeo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/clayferris
+
+==================================================================
