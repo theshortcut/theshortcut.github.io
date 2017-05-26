@@ -1,2 +1,10 @@
 _site
 .sass-cache
+_resume/*.aux
+_resume/*.lof
+_resume/*.log
+_resume/*.lot
+_resume/*.fls
+_resume/*.out
+_resume/*.toc
+_resume/*.pdf
