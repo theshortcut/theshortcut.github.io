@@ -2,6 +2,7 @@ import NextDocument, {
   DocumentContext,
   DocumentInitialProps,
   Head,
+  Html,
   Main,
   NextScript,
 } from 'next/document';
@@ -46,7 +47,7 @@ export default class Document extends NextDocument {
 
   render(): JSX.Element {
     return (
-      <html lang="en">
+      <Html>
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600&family=Montserrat:wght@700&display=swap"
@@ -57,7 +58,7 @@ export default class Document extends NextDocument {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
