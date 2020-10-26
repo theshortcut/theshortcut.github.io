@@ -1,6 +1,6 @@
 import { createStyled } from '@stitches/react';
 
-const theme = {
+export const theme = {
   colors: {
     $hiContrast: 'hsl(206,10%,5%)',
     $loContrast: 'white',
@@ -12,12 +12,15 @@ const theme = {
     $gray500: 'hsl(206,10%,76%)',
     $gray600: 'hsl(206,10%,44%)',
 
-    $purple100: 'hsl(252,100%,99%)',
-    $purple200: 'hsl(252,100%,98%)',
-    $purple300: 'hsl(252,100%,94%)',
-    $purple400: 'hsl(252,75%,84%)',
-    $purple500: 'hsl(252,78%,60%)',
-    $purple600: 'hsl(252,80%,53%)',
+    $blue100: 'hsl(190,100%,50%)',
+
+    $teal100: 'hsl(180,100%,45%)',
+
+    $green100: 'hsl(118,80%,72%)',
+
+    $yellow100: 'hsl(49,100%,72%)',
+
+    $red100: 'hsl(11,100%,87%)',
 
     $background: 'hsl(206,10%,10%)',
     $foreground: 'hsl(206,22%,99%)',

@@ -1,9 +1,6 @@
 import NextDocument, {
   DocumentContext,
   DocumentInitialProps,
-  Head,
-  Main,
-  NextScript,
 } from 'next/document';
 import React from 'react';
 import { css } from '../stitches.config';
@@ -42,22 +39,5 @@ export default class Document extends NextDocument {
     } finally {
       // oof
     }
-  }
-
-  render(): JSX.Element {
-    return (
-      <html lang="en">
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600&family=Montserrat:wght@700&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
-    );
   }
 }

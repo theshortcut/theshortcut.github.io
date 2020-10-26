@@ -1,6 +1,8 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React, { FC } from 'react';
-import { css, styled } from '../stitches.config';
+import { css, styled, theme } from '../stitches.config';
+import Logo from './logo';
 
 css.global({
   // Box sizing rules
@@ -15,6 +17,9 @@ css.global({
   // Remove default margin
   'body, h1, h2, h3, h4, p, ul, ol[class], li[class], figure, figcaption, blockquote, dl, dd': {
     margin: 0,
+  },
+  html: {
+    height: '100%',
   },
   // Set core body defaults
   body: {
@@ -44,28 +49,51 @@ css.global({
   },
 });
 
+const PageContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
+});
+
 const Header = styled.header({
-  backgroundColor: '$purple600',
-  color: '$foreground',
-  padding: '$1 $2',
+  alignItems: 'center',
+  color: '',
+  display: 'flex',
+  padding: '$2',
 });
 
 const Main = styled.main({
+  flex: 1,
   maxWidth: '$maxWidth',
   padding: '$2',
-  color: '$foreground',
 });
 
+const Footer = styled.footer({
+  color: '$gray600',
+  padding: '$2',
+});
+
+const HomeLink = styled.a({
+  alignItems: 'center',
+  color: '$foreground',
+  display: 'flex',
+  textDecoration: 'none',
+});
 const AppLayout: FC = ({ children }) => (
-  <>
+  <PageContainer>
     <Head>
       <title>Clayton Ferris</title>
     </Head>
     <Header>
-      <h1>Page Title</h1>
+      <Link href="/" passHref>
+        <HomeLink>
+          <Logo fill={theme.colors.$blue100} height="32px" width="53px" />
+        </HomeLink>
+      </Link>
     </Header>
     <Main>{children}</Main>
-  </>
+    <Footer>Copyright &copy; {new Date().getFullYear()} Clayton Ferris</Footer>
+  </PageContainer>
 );
 
 export default AppLayout;
