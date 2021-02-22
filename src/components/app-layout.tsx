@@ -1,8 +1,8 @@
+import Logo from '@/components/logo';
+import { css, styled, theme } from '@/stitches.config';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { FC } from 'react';
-import { css, styled, theme } from '../stitches.config';
-import Logo from './logo';
 
 css.global({
   // Box sizing rules
