@@ -1,10 +1,10 @@
-import { Bookmark, QueryBookmarksArgs } from '@/graphql/types.generated';
+import { Resolvers } from '@/graphql/types.generated';
 import qs from 'qs';
 
-export async function getBookmarks(
+export const getBookmarks: Resolvers['Query']['bookmarks'] = async (
   _,
-  { skip = 0 }: QueryBookmarksArgs,
-): Promise<Bookmark[]> {
+  { skip = 0 },
+) => {
   const params = qs.stringify({
     auth_token: process.env.PINBOARD_API_TOKEN,
     start: skip,
@@ -21,4 +21,4 @@ export async function getBookmarks(
     ...(b.extended ? { description: b.extended } : {}),
     tags: b.tags.split(' '),
   }));
-}
+};

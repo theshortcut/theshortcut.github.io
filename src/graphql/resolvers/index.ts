@@ -1,5 +1,8 @@
 import Query from '@/graphql/resolvers/queries';
+import { Resolvers } from '../types.generated';
 
-export default {
+const resolvers: Resolvers = {
   Query,
 };
+
+export default resolvers;
