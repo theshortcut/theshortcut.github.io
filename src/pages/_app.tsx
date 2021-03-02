@@ -1,14 +1,13 @@
-import { useApollo } from '@/graphql/client';
-import { ApolloProvider } from '@apollo/client';
+import { client } from '@/graphql/client';
 import { AppComponent } from 'next/dist/next-server/lib/router/router';
 import React from 'react';
+import { Provider } from 'urql';
 
 const App: AppComponent = ({ Component, pageProps }) => {
-  const apolloClient = useApollo(pageProps.initialApolloState);
   return (
-    <ApolloProvider client={apolloClient}>
+    <Provider value={client}>
       <Component {...pageProps} />
-    </ApolloProvider>
+    </Provider>
   );
 };
 

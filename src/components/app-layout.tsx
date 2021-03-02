@@ -1,8 +1,7 @@
-import Logo from '@/components/logo';
-import { css, styled, theme } from '@/stitches.config';
+import { css, styled } from '@/stitches.config';
 import Head from 'next/head';
-import Link from 'next/link';
 import React, { FC } from 'react';
+import Nav from './nav';
 
 css.global({
   // Box sizing rules
@@ -59,13 +58,19 @@ const Header = styled.header({
   alignItems: 'center',
   color: '',
   display: 'flex',
-  padding: '$2',
+  height: '$6',
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  boxShadow: 'rgb(0 0 0 / 25%) 0px 1px 0px',
+  backdropFilter: 'saturate(180%) blur(20px)',
 });
 
 const Main = styled.main({
   flex: 1,
   maxWidth: '$maxWidth',
-  padding: '$2',
+  padding: '$7 $3 $3 $3',
 });
 
 const Footer = styled.footer({
@@ -73,23 +78,17 @@ const Footer = styled.footer({
   padding: '$2',
 });
 
-const HomeLink = styled.a({
-  alignItems: 'center',
-  color: '$foreground',
-  display: 'flex',
-  textDecoration: 'none',
-});
 const AppLayout: FC = ({ children }) => (
   <PageContainer>
     <Head>
       <title>Clayton Ferris</title>
+      <link
+        rel="icon"
+        href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🛠&lt;/text&gt;&lt;/svg&gt;"
+      />
     </Head>
     <Header>
-      <Link href="/" passHref>
-        <HomeLink>
-          <Logo fill={theme.colors.$blue100} height="32px" width="53px" />
-        </HomeLink>
-      </Link>
+      <Nav />
     </Header>
     <Main>{children}</Main>
     <Footer>Copyright &copy; {new Date().getFullYear()} Clayton Ferris</Footer>

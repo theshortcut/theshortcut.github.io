@@ -16,7 +16,7 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-resolvers"
-      - "typescript-react-apollo"
+      - "typescript-urql"
   ./graphql.schema.json:
     plugins:
       - "introspection"

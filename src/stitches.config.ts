@@ -11,6 +11,8 @@ export const theme = {
     $gray400: 'hsl(206,10%,84%)',
     $gray500: 'hsl(206,10%,76%)',
     $gray600: 'hsl(206,10%,44%)',
+    $gray700: 'hsl(206,10%,22%)',
+    $gray700_50: 'hsla(206,10%,22%,0.5)',
 
     $blue100: 'hsl(190,100%,50%)',
 
@@ -23,32 +25,44 @@ export const theme = {
     $red100: 'hsl(11,100%,87%)',
 
     $background: 'hsl(206,10%,10%)',
+    $backgroundLight: 'hsl(206, 10%, 15%)',
+    $backgroundDark: 'hsl(206, 10%, 5%)',
+    $background_50: 'hsl(206, 10%, 22%)',
     $foreground: 'hsl(206,22%,99%)',
   },
   space: {
-    $1: '5px',
-    $2: '10px',
-    $3: '15px',
-    $4: '20px',
-    $5: '25px',
-    $6: '35px',
+    $1: '4px',
+    $2: '8px',
+    $3: '16px',
+    $4: '24px',
+    $5: '32px',
+    $6: '40px',
+    $7: '48px',
   },
   sizes: {
-    $1: '5px',
-    $2: '10px',
-    $3: '15px',
-    $4: '20px',
-    $5: '25px',
-    $6: '35px',
+    $1: '8px',
+    $2: '16px',
+    $3: '24px',
+    $4: '32px',
+    $5: '40px',
+    $6: '48px',
     $maxWidth: '1200px',
+  },
+  radii: {
+    $1: '4px',
+    $2: '8px',
+    $3: '12px',
+    $4: '16px',
+    $5: '20px',
+    $6: '24px',
   },
   fontSizes: {
     $1: '12px',
-    $2: '13px',
-    $3: '15px',
-    $4: '17px',
-    $5: '19px',
-    $6: '21px',
+    $2: '14px',
+    $3: '16px',
+    $4: '18px',
+    $5: '24px',
+    $6: '32px',
   },
   fonts: {
     $heading:
@@ -61,33 +75,50 @@ export const theme = {
 export const { styled, css } = createStyled({
   tokens: theme,
   utils: {
-    marginX: (config) => (
+    marginX: () => (
       value: keyof typeof theme['space'] | (string & Record<string, unknown>),
     ) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    marginY: (config) => (
+    marginY: () => (
       value: keyof typeof theme['space'] | (string & Record<string, unknown>),
     ) => ({
       marginTop: value,
       marginBottom: value,
     }),
-    paddingX: (config) => (
+    paddingX: () => (
       value: keyof typeof theme['space'] | (string & Record<string, unknown>),
     ) => ({
       paddingLeft: value,
       paddingRight: value,
     }),
-    paddingY: (config) => (
+    paddingY: () => (
       value: keyof typeof theme['space'] | (string & Record<string, unknown>),
     ) => ({
       paddingTop: value,
       paddingBottom: value,
     }),
+    neumorphic: () => ({
+      distance,
+      blur,
+      inset,
+    }: {
+      distance: keyof typeof theme['space'] | string;
+      blur: keyof typeof theme['space'] | string;
+      inset?: boolean;
+    }) => ({
+      boxShadow: `${
+        inset ? 'inset ' : ''
+      }${distance} ${distance} ${blur} $backgroundDark, ${
+        inset ? 'inset ' : ''
+      }-${distance} -${distance} ${blur} $backgroundLight`,
+    }),
   },
   breakpoints: {
-    bp1: (rule) => `@media (min-width: 520px) { ${rule} }`,
-    bp2: (rule) => `@media (min-width: 900px) { ${rule} }`,
+    sm: (rule) => `@media (min-width: 640px) { ${rule} }`,
+    md: (rule) => `@media (min-width: 768px) { ${rule} }`,
+    lg: (rule) => `@media (min-width: 1024px) { ${rule} }`,
+    xl: (rule) => `@media (min-width: 1280px) { ${rule} }`,
   },
 });
