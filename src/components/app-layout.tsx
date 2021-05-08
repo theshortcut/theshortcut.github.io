@@ -1,9 +1,9 @@
-import { css, styled } from '@/stitches.config';
+import { global, styled } from '@/stitches.config';
 import Head from 'next/head';
 import React, { FC } from 'react';
 import Nav from './nav';
 
-css.global({
+global({
   // Box sizing rules
   '*, *::before, *::after': {
     boxSizing: 'border-box',
@@ -46,15 +46,15 @@ css.global({
   'h1, h2, h3, h4, h5, h6': {
     fontFamily: '$heading',
   },
-});
+})();
 
-const PageContainer = styled.div({
+const PageContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
 });
 
-const Header = styled.header({
+const Header = styled('header', {
   alignItems: 'center',
   color: '',
   display: 'flex',
@@ -67,13 +67,13 @@ const Header = styled.header({
   backdropFilter: 'saturate(180%) blur(20px)',
 });
 
-const Main = styled.main({
+const Main = styled('main', {
   flex: 1,
   maxWidth: '$maxWidth',
   padding: '$7 $3 $3 $3',
 });
 
-const Footer = styled.footer({
+const Footer = styled('footer', {
   color: '$gray600',
   padding: '$2',
 });

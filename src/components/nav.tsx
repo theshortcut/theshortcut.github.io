@@ -3,25 +3,25 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
-const NavContainer = styled.nav({
+const NavContainer = styled('nav', {
   flex: 1,
 });
 
-const LinkList = styled.ul({
+const LinkList = styled('ul', {
   listStyle: 'none',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 });
 
-const LinkItem = styled.li({
+const LinkItem = styled('li', {
   display: 'flex',
   '& + &': {
     marginLeft: '$3',
   },
 });
 
-const NavLink = styled.a({
+const NavLink = styled('a', {
   alignItems: 'center',
   color: '$foreground',
   display: 'flex',
