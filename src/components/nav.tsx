@@ -23,13 +23,13 @@ const LinkItem = styled('li', {
 
 const NavLink = styled('a', {
   alignItems: 'center',
+  justifyContent: 'center',
   color: '$foreground',
   display: 'flex',
   textDecoration: 'none',
   padding: '$1 $3',
   borderRadius: '$2',
   neumorphic: { distance: '4px', blur: '8px' },
-  transition: 'box-shadow 5s',
   '&.selected': {
     color: '$blue100',
     neumorphic: { inset: true, distance: '4px', blur: '8px' },
