@@ -1,9 +1,9 @@
-import { global, styled } from '@/stitches.config';
+import { globalCss, styled } from '@/stitches.config';
 import Head from 'next/head';
 import React, { FC } from 'react';
 import Nav from './nav';
 
-global({
+globalCss({
   // Box sizing rules
   '*, *::before, *::after': {
     boxSizing: 'border-box',

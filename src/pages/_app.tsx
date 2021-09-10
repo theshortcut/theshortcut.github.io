@@ -1,5 +1,5 @@
 import { client } from '@/graphql/client';
-import { AppComponent } from 'next/dist/next-server/lib/router/router';
+import { AppComponent } from 'next/dist/shared/lib/router/router';
 import React from 'react';
 import { Provider } from 'urql';
 

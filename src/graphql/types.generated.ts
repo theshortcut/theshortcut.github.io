@@ -9,14 +9,15 @@ export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 export type RequireFields<T, K extends keyof T> = {
   [X in Exclude<keyof T, K>]?: T[X];
-} &
-  { [P in K]-?: NonNullable<T[P]> };
+} & { [P in K]-?: NonNullable<T[P]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -29,11 +30,11 @@ export type Scalars = {
 
 export type Bookmark = {
   __typename?: 'Bookmark';
-  id: Scalars['ID'];
-  url: Scalars['String'];
-  title: Scalars['String'];
   description?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title: Scalars['String'];
+  url: Scalars['String'];
 };
 
 export type Query = {
@@ -45,36 +46,41 @@ export type QueryBookmarksArgs = {
   skip?: Maybe<Scalars['Int']>;
 };
 
-export type BookmarkInfoFragment = { __typename: 'Bookmark' } & Pick<
-  Bookmark,
-  'id' | 'url' | 'title' | 'description' | 'tags'
->;
+export type BookmarkInfoFragment = {
+  __typename: 'Bookmark';
+  id: string;
+  url: string;
+  title: string;
+  description?: Maybe<string>;
+  tags?: Maybe<Array<Maybe<string>>>;
+};
 
 export type GetBookmarksQueryVariables = Exact<{
   skip?: Maybe<Scalars['Int']>;
 }>;
 
-export type GetBookmarksQuery = { __typename?: 'Query' } & {
-  bookmarks: Array<Maybe<{ __typename?: 'Bookmark' } & BookmarkInfoFragment>>;
+export type GetBookmarksQuery = {
+  __typename?: 'Query';
+  bookmarks: Array<
+    Maybe<{
+      __typename: 'Bookmark';
+      id: string;
+      url: string;
+      title: string;
+      description?: Maybe<string>;
+      tags?: Maybe<Array<Maybe<string>>>;
+    }>
+  >;
 };
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
-export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
-  fragment: string;
+export type ResolverWithResolve<TResult, TParent, TContext, TArgs> = {
   resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
 };
-
-export type NewStitchingResolver<TResult, TParent, TContext, TArgs> = {
-  selectionSet: string;
-  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
-};
-export type StitchingResolver<TResult, TParent, TContext, TArgs> =
-  | LegacyStitchingResolver<TResult, TParent, TContext, TArgs>
-  | NewStitchingResolver<TResult, TParent, TContext, TArgs>;
 export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> =
   | ResolverFn<TResult, TParent, TContext, TArgs>
-  | StitchingResolver<TResult, TParent, TContext, TArgs>;
+  | ResolverWithResolve<TResult, TParent, TContext, TArgs>;
 
 export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   parent: TParent,
@@ -102,7 +108,7 @@ export interface SubscriptionSubscriberObject<
   TKey extends string,
   TParent,
   TContext,
-  TArgs
+  TArgs,
 > {
   subscribe: SubscriptionSubscribeFn<
     { [key in TKey]: TResult },
@@ -128,7 +134,7 @@ export type SubscriptionObject<
   TKey extends string,
   TParent,
   TContext,
-  TArgs
+  TArgs,
 > =
   | SubscriptionSubscriberObject<TResult, TKey, TParent, TContext, TArgs>
   | SubscriptionResolverObject<TResult, TParent, TContext, TArgs>;
@@ -138,7 +144,7 @@ export type SubscriptionResolver<
   TKey extends string,
   TParent = {},
   TContext = {},
-  TArgs = {}
+  TArgs = {},
 > =
   | ((
       ...args: any[]
@@ -163,7 +169,7 @@ export type DirectiveResolverFn<
   TResult = {},
   TParent = {},
   TContext = {},
-  TArgs = {}
+  TArgs = {},
 > = (
   next: NextResolverFn<TResult>,
   parent: TParent,
@@ -175,46 +181,46 @@ export type DirectiveResolverFn<
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Bookmark: ResolverTypeWrapper<Bookmark>;
-  ID: ResolverTypeWrapper<Scalars['ID']>;
-  String: ResolverTypeWrapper<Scalars['String']>;
-  Query: ResolverTypeWrapper<{}>;
-  Int: ResolverTypeWrapper<Scalars['Int']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
+  Query: ResolverTypeWrapper<{}>;
+  String: ResolverTypeWrapper<Scalars['String']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Bookmark: Bookmark;
-  ID: Scalars['ID'];
-  String: Scalars['String'];
-  Query: {};
-  Int: Scalars['Int'];
   Boolean: Scalars['Boolean'];
+  ID: Scalars['ID'];
+  Int: Scalars['Int'];
+  Query: {};
+  String: Scalars['String'];
 };
 
 export type BookmarkResolvers<
   ContextType = any,
-  ParentType extends ResolversParentTypes['Bookmark'] = ResolversParentTypes['Bookmark']
+  ParentType extends ResolversParentTypes['Bookmark'] = ResolversParentTypes['Bookmark'],
 > = {
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   description?: Resolver<
     Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   tags?: Resolver<
     Maybe<Array<Maybe<ResolversTypes['String']>>>,
     ParentType,
     ContextType
   >;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type QueryResolvers<
   ContextType = any,
-  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
+  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query'],
 > = {
   bookmarks?: Resolver<
     Array<Maybe<ResolversTypes['Bookmark']>>,
@@ -228,12 +234,6 @@ export type Resolvers<ContextType = any> = {
   Bookmark?: BookmarkResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
-
-/**
- * @deprecated
- * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
- */
-export type IResolvers<ContextType = any> = Resolvers<ContextType>;
 
 export const BookmarkInfoFragmentDoc = gql`
   fragment BookmarkInfo on Bookmark {

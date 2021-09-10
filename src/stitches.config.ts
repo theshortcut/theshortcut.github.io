@@ -1,4 +1,4 @@
-import { createCss } from '@stitches/react';
+import { createStitches } from '@stitches/react';
 
 const themeTokens = {
   colors: {
@@ -79,12 +79,12 @@ export const {
   css,
   theme,
   keyframes,
-  getCssString,
-  global,
-} = createCss({
+  getCssText,
+  globalCss,
+} = createStitches({
   theme: themeTokens,
   utils: {
-    marginX: () => (
+    marginX: (
       value:
         | keyof typeof themeTokens['space']
         | (string & Record<string, unknown>),
@@ -92,7 +92,7 @@ export const {
       marginLeft: value,
       marginRight: value,
     }),
-    marginY: () => (
+    marginY: (
       value:
         | keyof typeof themeTokens['space']
         | (string & Record<string, unknown>),
@@ -100,7 +100,7 @@ export const {
       marginTop: value,
       marginBottom: value,
     }),
-    paddingX: () => (
+    paddingX: (
       value:
         | keyof typeof themeTokens['space']
         | (string & Record<string, unknown>),
@@ -108,7 +108,7 @@ export const {
       paddingLeft: value,
       paddingRight: value,
     }),
-    paddingY: () => (
+    paddingY: (
       value:
         | keyof typeof themeTokens['space']
         | (string & Record<string, unknown>),
@@ -116,7 +116,7 @@ export const {
       paddingTop: value,
       paddingBottom: value,
     }),
-    neumorphic: () => ({
+    neumorphic: ({
       distance,
       blur,
       inset,
@@ -124,7 +124,7 @@ export const {
       distance: keyof typeof themeTokens['space'] | string;
       blur: keyof typeof themeTokens['space'] | string;
       inset?: boolean;
-    }) => ({
+    }): { boxShadow: string } => ({
       boxShadow: `${
         inset ? 'inset ' : ''
       }${distance} ${distance} ${blur} $backgroundDark, ${

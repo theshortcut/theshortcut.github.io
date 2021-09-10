@@ -7,16 +7,19 @@ const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   context,
-  uploads: false,
-  subscriptions: false,
 });
+
+const startServer = apolloServer.start();
+
+export default async function handler(req, res) {
+  await startServer;
+  await apolloServer.createHandler({
+    path: '/api/graphql',
+  })(req, res);
+}
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
-
-const handler = apolloServer.createHandler({ path: '/api/graphql' });
-
-export default handler;
